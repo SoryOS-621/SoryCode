@@ -1,0 +1,23 @@
+{
+  "name": "sorycode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SoryCode — agentic coding engine (Rust core, React apps)",
+  "workspaces": [
+    "apps/app",
+    "apps/ui",
+    "apps/desktop",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @sorycode/app",
+    "build": "npm run build -w @sorycode/ui && npm run build -w @sorycode/app",
+    "typecheck": "npm run typecheck -w @sorycode/types && npm run typecheck -w @sorycode/contracts && npm run typecheck -w @sorycode/ui && npm run typecheck -w @sorycode/app",
+    "desktop:dev": "npm run dev -w @sorycode/desktop",
+    "desktop:build": "npm run build -w @sorycode/desktop",
+    "core:build": "CARGO_BUILD_JOBS=1 cargo build -p sorycode-cli"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

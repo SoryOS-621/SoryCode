@@ -1,0 +1,18 @@
+[package]
+name = "sorycode-orchestrator"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+sorycode-core = { path = "../sorycode-core" }
+sorycode-agent = { path = "../sorycode-agent" }
+sorycode-providers = { path = "../sorycode-providers" }
+sorycode-events = { path = "../sorycode-events" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }

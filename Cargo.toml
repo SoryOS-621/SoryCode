@@ -1,0 +1,93 @@
+[workspace]
+resolver = "3"
+# The Tauri shell is a standalone crate with its own lockfile and toolchain
+# requirements (system webview libraries).
+exclude = ["apps/desktop/src-tauri"]
+members = [
+    "crates/sorycode-core",
+    "crates/sorycode-events",
+    "crates/sorycode-protocol",
+    "crates/sorycode-storage",
+    "crates/sorycode-security",
+    "crates/sorycode-context",
+    "crates/sorycode-execution",
+    "crates/sorycode-tools",
+    "crates/sorycode-providers",
+    "crates/sorycode-agent",
+    "crates/sorycode-orchestrator",
+    "crates/sorycode-application",
+    "crates/sorycode-cli",
+]
+default-members = ["crates/sorycode-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+authors = ["SoryCode Contributors"]
+repository = "https://github.com/sorycode/sorycode"
+
+[workspace.dependencies]
+# async
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "io-util", "io-std", "process", "fs"] }
+async-trait = "0.1"
+futures = "0.3"
+
+# serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# errors
+thiserror = "2"
+anyhow = "1"
+
+# logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+# ids / time
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# config
+toml = "0.8"
+
+# storage
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "sqlite", "migrate", "chrono", "uuid"] }
+
+# http
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls", "http2"] }
+
+# cli
+clap = { version = "4", features = ["derive", "env"] }
+
+# git
+git2 = "0.20"
+
+# pty
+portable-pty = "0.9"
+
+# fs helpers
+walkdir = "2"
+ignore = "0.4"
+globset = "0.4"
+regex = "1"
+
+# hashing
+sha2 = "2"
+
+# concurrency
+parking_lot = "0.12"
+
+[profile.dev]
+opt-level = 0
+debug = "line-tables-only"
+incremental = true
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+panic = "abort"

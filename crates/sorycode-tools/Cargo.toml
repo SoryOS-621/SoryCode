@@ -1,0 +1,21 @@
+[package]
+name = "sorycode-tools"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+sorycode-core = { path = "../sorycode-core" }
+sorycode-security = { path = "../sorycode-security" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+walkdir = { workspace = true }
+ignore = { workspace = true }
+regex = { workspace = true }
+git2 = { workspace = true }
+reqwest = { workspace = true }

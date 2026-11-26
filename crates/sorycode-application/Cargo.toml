@@ -1,0 +1,25 @@
+[package]
+name = "sorycode-application"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+sorycode-core = { path = "../sorycode-core" }
+sorycode-events = { path = "../sorycode-events" }
+sorycode-protocol = { path = "../sorycode-protocol" }
+sorycode-storage = { path = "../sorycode-storage" }
+sorycode-agent = { path = "../sorycode-agent" }
+sorycode-orchestrator = { path = "../sorycode-orchestrator" }
+sorycode-context = { path = "../sorycode-context" }
+sorycode-providers = { path = "../sorycode-providers" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }

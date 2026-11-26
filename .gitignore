@@ -1,0 +1,11 @@
+node_modules/
+dist/
+target/
+.sorycode/
+*.log
+.DS_Store
+.env
+.env.local
+apps/desktop/src-tauri/target/
+apps/desktop/src-tauri/gen/
+soryos-assistant/

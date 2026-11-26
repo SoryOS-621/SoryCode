@@ -1,0 +1,43 @@
+[workspace]
+
+[package]
+name = "sorycode-desktop"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "SoryCode native desktop shell (Tauri)"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "sorycode_desktop"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "=2.4.1", features = [] }
+
+[dependencies]
+# The lockfile pins the whole Tauri runtime stack (tauri-runtime 2.8.0,
+# tauri-runtime-wry 2.8.1, tauri-utils 2.7.0, tauri-codegen 2.4.0,
+# tauri-macros 2.4.0). Newer runtime-wry releases do not implement the
+# trait additions of newer runtime releases, so avoid `cargo update` until
+# the upstream stack is aligned.
+tauri = { version = "=2.8.5", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "fs"] }
+async-trait = "0.1"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+sorycode-core = { path = "../../../crates/sorycode-core" }
+sorycode-events = { path = "../../../crates/sorycode-events" }
+sorycode-protocol = { path = "../../../crates/sorycode-protocol" }
+sorycode-storage = { path = "../../../crates/sorycode-storage" }
+sorycode-providers = { path = "../../../crates/sorycode-providers" }
+sorycode-orchestrator = { path = "../../../crates/sorycode-orchestrator" }
+sorycode-agent = { path = "../../../crates/sorycode-agent" }
+sorycode-security = { path = "../../../crates/sorycode-security" }
+sorycode-application = { path = "../../../crates/sorycode-application" }
+tauri-plugin-dialog = "=2.4.0"

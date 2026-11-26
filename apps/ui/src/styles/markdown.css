@@ -1,0 +1,272 @@
+/* ------------------------------------------------------------------ *
+ * Model output rendering (chat assistant messages, help content).     *
+ * ------------------------------------------------------------------ */
+
+.sory-markdown {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--sory-text);
+  overflow-wrap: anywhere;
+}
+
+.sory-markdown > *:first-child {
+  margin-top: 0;
+}
+.sory-markdown > *:last-child {
+  margin-bottom: 0;
+}
+
+.sory-markdown p {
+  margin: 0 0 12px;
+}
+
+.sory-md-h2,
+.sory-md-h3,
+.sory-md-h4,
+.sory-md-h5,
+.sory-md-h6 {
+  margin: 22px 0 10px;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  scroll-margin-top: 72px;
+}
+
+.sory-md-h2 {
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--sory-border);
+}
+.sory-md-h3 {
+  font-size: 15.5px;
+  font-weight: 650;
+}
+.sory-md-h4 {
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--sory-text);
+}
+.sory-md-h5,
+.sory-md-h6 {
+  font-size: 13px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sory-text-muted);
+}
+
+.sory-markdown ul,
+.sory-markdown ol {
+  margin: 0 0 12px;
+  padding-left: 22px;
+}
+.sory-markdown li {
+  margin: 4px 0;
+}
+.sory-markdown li > p {
+  margin: 0;
+}
+.sory-markdown li::marker {
+  color: var(--sory-text-subtle);
+}
+.sory-markdown ul.contains-task-list {
+  list-style: none;
+  padding-left: 4px;
+}
+
+.sory-markdown strong {
+  font-weight: 650;
+  color: var(--sory-text);
+}
+
+.sory-markdown blockquote {
+  margin: 0 0 14px;
+  padding: 8px 14px;
+  border-left: 3px solid var(--sory-accent);
+  border-radius: 0 var(--sory-radius-sm) var(--sory-radius-sm) 0;
+  background: var(--sory-bg-subtle);
+  color: var(--sory-text-muted);
+}
+.sory-markdown blockquote p {
+  margin: 0;
+}
+
+.sory-markdown hr {
+  height: 1px;
+  margin: 20px 0;
+  border: 0;
+  background: var(--sory-border);
+}
+
+.sory-markdown img {
+  max-width: 100%;
+  border-radius: var(--sory-radius-md);
+  border: 1px solid var(--sory-border);
+}
+
+.sory-markdown input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  accent-color: var(--sory-accent);
+  vertical-align: -2px;
+}
+
+/* Links keep the accent but gain an underline on hover only. */
+.sory-markdown a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--sory-border-strong);
+}
+.sory-markdown a:hover {
+  text-decoration-color: var(--sory-accent);
+}
+
+/* Inline code ------------------------------------------------------ */
+
+.sory-inline-code {
+  font-family: var(--sory-font-mono);
+  font-size: 0.88em;
+  padding: 1.5px 5px;
+  border-radius: 5px;
+  border: 1px solid var(--sory-border);
+  background: var(--sory-bg-subtle);
+  color: var(--sory-accent);
+  white-space: break-spaces;
+}
+
+/* Tables (GFM) ----------------------------------------------------- */
+
+.sory-markdown table {
+  width: 100%;
+  margin: 0 0 16px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  border: 1px solid var(--sory-border);
+  border-radius: var(--sory-radius-md);
+  overflow: hidden;
+}
+.sory-markdown thead th {
+  background: var(--sory-bg-subtle);
+  font-weight: 650;
+  text-align: left;
+  color: var(--sory-text);
+}
+.sory-markdown th,
+.sory-markdown td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--sory-border);
+  vertical-align: top;
+}
+.sory-markdown tbody tr:last-child th,
+.sory-markdown tbody tr:last-child td {
+  border-bottom: 0;
+}
+.sory-markdown tbody tr:hover {
+  background: var(--sory-surface-hover);
+}
+
+/* Code panels ------------------------------------------------------ */
+
+.sory-markdown .sory-code-block {
+  margin: 0 0 16px;
+}
+
+/* Mermaid diagrams -------------------------------------------------- */
+
+.sory-mermaid {
+  margin: 0 0 16px;
+  border: 1px solid var(--sory-border);
+  border-radius: var(--sory-radius-md);
+  background:
+    radial-gradient(1200px 400px at 20% -10%, var(--sory-accent-soft), transparent 60%),
+    var(--sory-bg-elevated);
+  overflow: hidden;
+}
+
+.sory-mermaid-caption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--sory-border);
+  background: var(--sory-bg-subtle);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sory-text-muted);
+}
+
+.sory-mermaid-status {
+  margin-left: auto;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--sory-text-subtle);
+}
+
+.sory-mermaid-canvas {
+  position: relative;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  overflow: auto;
+}
+
+.sory-mermaid-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+.sory-mermaid-svg svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.sory-mermaid-skeleton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  pointer-events: none;
+}
+.sory-mermaid-skeleton span {
+  height: 12px;
+  border-radius: var(--sory-radius-full);
+  background: linear-gradient(
+    90deg,
+    var(--sory-bg-inset) 25%,
+    var(--sory-bg-subtle) 50%,
+    var(--sory-bg-inset) 75%
+  );
+  background-size: 200% 100%;
+  animation: sory-shimmer 1.4s linear infinite;
+}
+.sory-mermaid-skeleton span:nth-child(1) { width: 42%; }
+.sory-mermaid-skeleton span:nth-child(2) { width: 76%; }
+.sory-mermaid-skeleton span:nth-child(3) { width: 58%; }
+
+@keyframes sory-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.sory-mermaid-failed .sory-code {
+  margin: 12px;
+}
+.sory-mermaid-error {
+  display: block;
+  padding: 0 12px 12px;
+  font-family: var(--sory-font-mono);
+  font-size: 11px;
+  color: var(--sory-danger);
+}

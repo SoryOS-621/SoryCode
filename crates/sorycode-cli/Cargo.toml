@@ -1,0 +1,31 @@
+[package]
+name = "sorycode-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "sorycode"
+path = "src/main.rs"
+
+[dependencies]
+sorycode-core = { path = "../sorycode-core" }
+sorycode-application = { path = "../sorycode-application" }
+sorycode-storage = { path = "../sorycode-storage" }
+sorycode-agent = { path = "../sorycode-agent" }
+sorycode-orchestrator = { path = "../sorycode-orchestrator" }
+sorycode-providers = { path = "../sorycode-providers" }
+sorycode-events = { path = "../sorycode-events" }
+sorycode-protocol = { path = "../sorycode-protocol" }
+sorycode-security = { path = "../sorycode-security" }
+async-trait = { workspace = true }
+chrono = { workspace = true }
+sorycode-context = { path = "../sorycode-context" }
+clap = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+anyhow = { workspace = true }
+serde_json = { workspace = true }
+libc = "0.2"
